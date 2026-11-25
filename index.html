@@ -1,0 +1,549 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brew & Bloom | Premium Cafe</title>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+:root {
+  --brown: #493020;
+  --cream: #f8f3eb;
+  --gold: #c89c61;
+  --dark: #211811;
+}
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--dark);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  background: var(--cream);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 27px;
+  font-weight: bold;
+  color: var(--brown);
+}
+
+nav {
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  text-decoration: none;
+  color: var(--brown);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 630px;
+  display: flex;
+  align-items: center;
+  padding: 80px 10%;
+  color: white;
+  background:
+    linear-gradient(90deg, rgba(25,15,9,.85), rgba(25,15,9,.2)),
+    url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1800')
+    center/cover;
+}
+
+.hero-content {
+  max-width: 650px;
+}
+
+.hero small {
+  color: #e4bd86;
+  letter-spacing: 4px;
+  font-weight: bold;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(45px, 7vw, 82px);
+  line-height: 1.1;
+  margin: 25px 0;
+}
+
+.hero p {
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 470px;
+  color: #eee;
+}
+
+.btn {
+  display: inline-block;
+  background: var(--gold);
+  color: white;
+  padding: 15px 30px;
+  margin-top: 30px;
+  text-decoration: none;
+  border-radius: 3px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: #a77943;
+  transform: translateY(-3px);
+}
+
+section {
+  padding: 90px 9%;
+}
+
+.section-heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-heading small {
+  color: #ae7c48;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.section-heading h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 43px;
+  margin-top: 12px;
+  color: var(--brown);
+}
+
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 60px;
+}
+
+.about img {
+  width: 100%;
+  height: 440px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.about h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  color: var(--brown);
+  margin: 15px 0;
+}
+
+.about p {
+  line-height: 1.9;
+  color: #71665d;
+}
+
+.menu {
+  background: #eee5d8;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.menu-card {
+  background: white;
+  padding-bottom: 24px;
+  text-align: center;
+  border-radius: 7px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.menu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px #49302020;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+.menu-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 23px;
+  margin: 20px 0 8px;
+}
+
+.menu-card p {
+  color: #8b7c70;
+  font-size: 14px;
+}
+
+.price {
+  display: block;
+  margin-top: 13px;
+  color: #a97843;
+  font-size: 19px;
+  font-weight: bold;
+}
+
+.special {
+  text-align: center;
+  background: var(--brown);
+  color: white;
+}
+
+.special h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 45px;
+  margin: 15px;
+}
+
+.special p {
+  color: #e2d2c1;
+  line-height: 1.8;
+}
+
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.review {
+  padding: 30px;
+  background: white;
+  border-radius: 5px;
+  line-height: 1.8;
+  color: #71665d;
+}
+
+.review h3 {
+  color: var(--brown);
+  margin-top: 20px;
+}
+
+.stars {
+  color: #d49d48;
+  letter-spacing: 4px;
+}
+
+.booking {
+  background: #eee5d8;
+}
+
+.booking form {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  gap: 15px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #d9cbbb;
+  background: white;
+  font: inherit;
+  border-radius: 3px;
+}
+
+footer {
+  padding: 55px 9%;
+  background: var(--dark);
+  color: white;
+  text-align: center;
+}
+
+footer h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
+  margin-bottom: 15px;
+}
+
+footer p {
+  color: #cbbcaf;
+  line-height: 2;
+}
+
+footer a {
+  color: #e1b77d;
+  text-decoration: none;
+}
+
+@media(max-width: 800px) {
+  header {
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  nav {
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-grid, .reviews {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  section {
+    padding: 65px 6%;
+  }
+}
+
+@media(max-width: 520px) {
+  .menu-grid, .reviews {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: 570px;
+    padding: 50px 7%;
+  }
+
+  .section-heading h2 {
+    font-size: 34px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">☕ BREW & BLOOM</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#menu">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<div class="hero" id="home">
+  <div class="hero-content">
+    <small>WELCOME TO BREW & BLOOM</small>
+    <h1>Where Every Cup Tells A Story.</h1>
+    <p>
+      Discover the perfect blend of handcrafted coffee,
+      delicious food and unforgettable moments.
+      Your happy place starts here.
+    </p>
+    <a href="#menu" class="btn">EXPLORE OUR MENU →</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=900"
+       alt="Beautiful cafe interior">
+  <div>
+    <small>OUR STORY</small>
+    <h2>More Than Just A Coffee Shop.</h2>
+    <p>
+      At Brew & Bloom, we believe coffee is more than
+      a drink. It's a moment of happiness, a reason
+      to connect and a little escape from everyday life.
+      <br><br>
+      We serve freshly brewed coffee, delicious treats
+      and warm hospitality in a beautiful atmosphere.
+    </p>
+    <a href="#contact" class="btn">VISIT US</a>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu" id="menu">
+  <div class="section-heading">
+    <small>MADE WITH LOVE</small>
+    <h2>Our Special Menu</h2>
+  </div>
+
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=700" alt="Cappuccino">
+      <h3>Classic Cappuccino</h3>
+      <p>Rich espresso with silky milk foam</p>
+      <span class="price">₹149</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?w=700" alt="Iced coffee">
+      <h3>Iced Coffee</h3>
+      <p>Refreshing, creamy and delicious</p>
+      <span class="price">₹179</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=700" alt="Croissant">
+      <h3>Butter Croissant</h3>
+      <p>Freshly baked golden perfection</p>
+      <span class="price">₹119</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1572490122747-3968b75cc699?w=700" alt="Milkshake">
+      <h3>Chocolate Shake</h3>
+      <p>Thick, creamy chocolate happiness</p>
+      <span class="price">₹199</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1528735602780-2552fd46c7af?w=700" alt="Sandwich">
+      <h3>Grilled Sandwich</h3>
+      <p>Fresh vegetables and melted cheese</p>
+      <span class="price">₹169</span>
+    </div>
+
+    <div class="menu-card">
+      <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700" alt="Chocolate cake">
+      <h3>Chocolate Cake</h3>
+      <p>Rich, soft and irresistible</p>
+      <span class="price">₹159</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- SPECIAL -->
+<section class="special">
+  <small>THE PERFECT ESCAPE</small>
+  <h2>Good Coffee. Good Mood.</h2>
+  <p>
+    Beautiful moments begin with a perfect cup.
+    <br>Come in, relax and make yourself at home.
+  </p>
+  <a href="#contact" class="btn">FIND YOUR HAPPY PLACE</a>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-heading">
+    <small>HAPPY CUSTOMERS</small>
+    <h2>Love From Our Guests</h2>
+  </div>
+
+  <div class="reviews">
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Amazing coffee, beautiful atmosphere
+      and super friendly staff. Loved it!"</p>
+      <h3>— A Happy Guest</h3>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"The perfect place to relax with
+      friends. The coffee is fantastic."</p>
+      <h3>— Coffee Lover</h3>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <p>"Great food, lovely interiors and
+      wonderful vibes. Highly recommended!"</p>
+      <h3>— Our Guest</h3>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="contact">
+  <div class="section-heading">
+    <small>WE ARE WAITING FOR YOU</small>
+    <h2>Book Your Table</h2>
+  </div>
+
+  <form id="bookingForm">
+    <input type="text" id="name" placeholder="Your Name" required>
+    <input type="tel" id="phone" placeholder="Phone Number" required>
+    <input type="date" id="date" required>
+    <select id="guests" required>
+      <option value="">Number of Guests</option>
+      <option>1 Guest</option>
+      <option>2 Guests</option>
+      <option>3 Guests</option>
+      <option>4 Guests</option>
+      <option>5+ Guests</option>
+    </select>
+    <textarea id="message" placeholder="Special requests (optional)"></textarea>
+    <button class="btn" type="submit">RESERVE MY TABLE</button>
+  </form>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <h2>☕ BREW & BLOOM</h2>
+  <p>Crafted with love. Served with happiness.</p>
+  <p>📍 Your City, Your Location</p>
+  <p>🕒 Monday – Sunday | 9 AM – 11 PM</p>
+  <p>📞 +91 98765 43210</p>
+  <p>© 2026 Brew & Bloom. All Rights Reserved.</p>
+</footer>
+
+<script>
+document.getElementById("bookingForm")
+.addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("name").value;
+  const phone = document.getElementById("phone").value;
+  const date = document.getElementById("date").value;
+  const guests = document.getElementById("guests").value;
+  const message = document.getElementById("message").value;
+
+  const whatsappNumber = "919876543210";
+
+  const text = `Hello! I want to book a table.
+
+Name: ${name}
+Phone: ${phone}
+Date: ${date}
+Guests: ${guests}
+Request: ${message}`;
+
+  window.open(
+    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
+    "_blank"
+  );
+});
+</script>
+
+</body>
+</html>
